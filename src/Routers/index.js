@@ -12,6 +12,7 @@ import Register from "../Pages/Register/Register";
 import Dashboard from "../Pages/Dashboard/Dashboard";
 import Payment from "../Pages/Payment/Payment";
 import PrivateRoute from "./PrivateRoute";
+import PublicRoute from "./PublicRoute";
 
 const routes = () => {
   return (
@@ -23,9 +24,9 @@ const routes = () => {
         <Route exact path="/about/:params" component={About} />
         <Route exact path="/categories" component={Categories} />
         <Route exact path="/login" component={Login} />
-        <Route exact path="/register" component={Register} />
+        <PublicRoute exact path="/register" component={Register} />
         <PrivateRoute exact path="/dashboard" component={Dashboard} />
-        <Route exact path="/payment" component={Payment} />
+        <PrivateRoute exact path="/payment" component={Payment} />
         <Route exact path="*" component={NotFound} />
       </Switch>
     </Router>

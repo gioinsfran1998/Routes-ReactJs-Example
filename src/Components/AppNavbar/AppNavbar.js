@@ -19,21 +19,31 @@ const AppNavbar = () => {
         <li>
           <Link to="/">Categories</Link>
         </li>
+        {!auth.isLogged() && (
+          <>
         <li>
-          <Link to="/login">Login</Link>
+              <Link to="/login">Login</Link>
         </li>
         <li>
           <Link to="/register">Register</Link>
         </li>
+        </>
+          )}
+
+        {auth.isLogged() && (
+          <>
         <li>
           <Link to="/dashboard">Dashboard</Link>
         </li>
         <li>
           <Link to="/payment">Payment</Link>
         </li>
+
         <li>
           <button onClick={auth.logout}>Logout</button>
         </li>
+        </>
+        )}
       </ul>
     </div>
   );
